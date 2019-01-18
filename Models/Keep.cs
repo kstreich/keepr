@@ -12,5 +12,9 @@ namespace keepr.Models
     public int Likes { get; set; }
 
     public int Views { get; set; }
+
+    public int Id { get; set; }
+
+    public bool IsPrivate { get; set; }
   }
 }

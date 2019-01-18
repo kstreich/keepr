@@ -10,5 +10,9 @@ namespace keepr.Models
 
     public string Description { get; set; }
 
+    public int Id { get; set; }
+
+    public bool IsPrivate { get; set; }
+
   }
 }
