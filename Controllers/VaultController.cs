@@ -43,11 +43,11 @@ namespace keepr.Controllers
     [HttpPost]
     public ActionResult<Vault> Post([FromBody] Vault value)
     {
-      var id = HttpContext.User.Identity.Name;
-
+      value.UserId = HttpContext.User.Identity.Name;
 
       Vault result = _repo.AddVault(value);
-      return Created("/api/library/" + result.Id, result);
+
+      return Created("/api/vault/" + result.Id, result);
     }
 
     // PUT api/values/5

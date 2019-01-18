@@ -12,7 +12,7 @@ namespace keepr.Models
 
     public int Id { get; set; }
 
-    public bool IsPrivate { get; set; }
+    public int IsPrivate { get; set; } = 1;
 
     public string UserId { get; set; }
 
