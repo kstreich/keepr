@@ -27,6 +27,11 @@ namespace keepr.Repositories
       return _db.QueryFirstOrDefault<Vault>($"SELECT * FROM Vaults WHERE id = @id", new { id });
     }
 
+    public IEnumerable<Vault> GetByUserId(string id)
+    {
+      return _db.Query<Vault>($"SELECT * FROM Vaults WHERE userId = @id", new { id });
+    }
+
     //AddVault
     public Vault AddVault(Vault newVault)
     {

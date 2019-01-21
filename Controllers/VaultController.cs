@@ -10,21 +10,32 @@ namespace keepr.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class VaultController : ControllerBase
+  public class VaultsController : ControllerBase
   {
     private readonly VaultRepository _repo;
 
-    public VaultController(VaultRepository repo)
+    public VaultsController(VaultRepository repo)
     {
       _repo = repo;
     }
 
 
-    // GET api/values
+    // GETs all vaults api/values
     [HttpGet]
     public ActionResult<IEnumerable<Vault>> Get()
     {
       return Ok(_repo.GetAll());
+    }
+
+    [HttpGet("user/{userId}")]
+    public ActionResult<IEnumerable<Vault>> GetAction(string userId)
+    {
+      IEnumerable<Vault> result = _repo.GetByUserId(userId);
+      if (result != null)
+      {
+        return Ok(result);
+      }
+      return BadRequest();
     }
 
     // GET api/values/5
