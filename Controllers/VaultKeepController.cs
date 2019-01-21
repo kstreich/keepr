@@ -21,17 +21,19 @@ namespace keepr.Controllers
 
 
     // GET api/values
-    [HttpGet]
-    public ActionResult<IEnumerable<VaultKeep>> Get()
-    {
-      return Ok(_repo.GetAll());
-    }
+    // [HttpGet]
+    // public ActionResult<IEnumerable<VaultKeep>> Get()
+    // {
+    //   return Ok(_repo.GetAll());
+    // }
 
-    // GET api/values/5
+    //GET api/values/5
+    //Get VaultKeeps by the vault id
     [HttpGet("{id}")]
-    public ActionResult<VaultKeep> Get(int id)
+    public ActionResult<IEnumerable<Keep>> GetKeepByVaultId(int id)
     {
-      VaultKeep result = _repo.GetById(id);
+      var uid = HttpContext.User.Identity.Name;
+      var result = _repo.GetKeepByVaultId(id, uid);
       if (result != null)
       {
         return Ok(result);
@@ -60,7 +62,7 @@ namespace keepr.Controllers
     [HttpDelete("{id}")]
     public ActionResult<string> Delete(int id)
     {
-      if (_repo.DeleteKeep(id))
+      if (_repo.DeleteVaultKeep(id))
       {
         return Ok("Successfully deleted!");
       }
