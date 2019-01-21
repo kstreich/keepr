@@ -46,5 +46,19 @@ namespace keepr.Repositories
       return success != 0;
 
     }
+
+    public Keep EditKeep(int id, Keep newKeep)
+    {
+      {
+        return _db.QueryFirstOrDefault<Keep>($@"
+       UPDATE keeps SET 
+          views = @views,
+          shares = @shares,
+          keeps = @keeps
+          WHERE id = { id };
+          SELECT * FROM keeps WHERE id= {id};", newKeep);
+
+      }
+    }
   }
 }
