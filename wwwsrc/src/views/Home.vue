@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome Home</h1>
+    <h1>Welcome Home, this is where all of the keeps are going to be</h1>
   </div>
 </template>
 
