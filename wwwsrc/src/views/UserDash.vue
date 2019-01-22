@@ -1,9 +1,7 @@
 <template>
   <div class="">
-    <VaultForm></VaultForm>
-
-
-    <div class="card-columns count">
+    <VaultForm class="mt-5"></VaultForm>
+    <div class="card-columns count mt-5">
       <div v-for="vault in vaults">
         <div class="card">
           <h5 class="card-title">{{vault.name}}</h5>
@@ -11,8 +9,6 @@
         </div>
       </div>
     </div>
-
-
 
   </div>
 </template>
@@ -33,7 +29,8 @@
     computed: {
       vaults() {
         return this.$store.state.UserVaults
-      }
+      },
+
     },
     methods: {
 
