@@ -39,6 +39,7 @@ export default new Vuex.Store({
 
     //VAULTS
     getAllVaults({ commit, dispatch }, userId) {
+      debugger
       api.get('/user/' + userId)
         .then(res => {
           console.log(res)

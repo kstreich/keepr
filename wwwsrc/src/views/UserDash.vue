@@ -21,10 +21,7 @@
       this.$store.dispatch('getAllVaults')
     },
     computed: {
-      user() {
 
-        return this.$store.state.user.id
-      }
     },
     methods: {
 
