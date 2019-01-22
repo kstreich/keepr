@@ -31,20 +31,20 @@ export default new Router({
     },
     {
       //This will show all of the users vaults
-      path: '/userDash/',
+      path: '/userDash',
       name: 'userDash',
       component: UserDash,
       props: true
     },
     {
       //A specific vault which will show all of the keeps
-      path: '/vault/:id',
+      path: '/vault',
       name: "vault",
       component: Vault,
       props: true
     },
     {
-      path: '/keep/:id',
+      path: '/keeps',
       name: "keep",
       component: Keep,
       props: true

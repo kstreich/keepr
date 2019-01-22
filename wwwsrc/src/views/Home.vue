@@ -37,7 +37,7 @@
     computed: {
       keeps() {
         return this.$store.state.Allkeeps
-      }
+      },
     },
     methods: {
 

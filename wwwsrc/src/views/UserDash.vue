@@ -1,10 +1,14 @@
 <template>
   <div class="">
+    <VaultForm></VaultForm>
+
+
 
   </div>
 </template>
 
 <script>
+  import VaultForm from '@/Components/VaultForm.vue'
   export default {
     //ask about grabbing the user data and requesting the user id, if that should be done in the back end and how to do that?
     name: '',
@@ -13,15 +17,13 @@
 
       }
     },
-    beforemount() {
-      this.$store.dispatch("authenticate")
-    },
     mounted() {
-
       this.$store.dispatch('getAllVaults')
     },
     computed: {
-
+      vaults() {
+        return this.$store.state.UserVaults
+      }
     },
     methods: {
 
@@ -30,13 +32,19 @@
 
     },
     components: {
+      VaultForm
+    },
+    props: [
 
-    }
+    ]
   }
 
 </script>
 
 <style>
-
-
+  .btn-clear {
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    cursor: pointer;
+  }
 </style>

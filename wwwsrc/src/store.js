@@ -38,11 +38,10 @@ export default new Vuex.Store({
   actions: {
 
     //VAULTS
-    getAllVaults({ commit, dispatch }, userId) {
-      debugger
-      api.get('/user/' + userId)
+    getAllVaults({ commit, dispatch }) {
+      api.get('/vaults')
         .then(res => {
-          console.log(res)
+          console.log("Vaults ->", res.data)
           commit('setVaultsByUser', res.data)
         })
     },
@@ -51,7 +50,7 @@ export default new Vuex.Store({
     getAllKeeps({ commit, dispatch }) {
       api.get('/keeps')
         .then(res => {
-          console.log(res)
+          console.log("Keeps ->", res.data)
           commit('setAllKeeps', res.data)
         })
     },
@@ -71,9 +70,9 @@ export default new Vuex.Store({
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
-          console.log(res.data)
+          console.log("User ->", res.data)
           commit('setUser', res.data)
-          router.push({ name: 'home' })
+          // router.push({ name: 'home' })
         })
         .catch(e => {
           console.log('not authenticated')
