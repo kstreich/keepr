@@ -14,25 +14,27 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Create a Vault</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            Here is the modal body where all the text goes
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form @submit.prevent="createVault()">
+              <div class="form-group row">
+                <label for="vaultName">Name</label>
+                <input type="text" class="form-control" v-model="vault.name">
+              </div>
+              <div class="form-group row">
+                <label for="vaultDesc">Description</label>
+                <input type="text" class="form-control" v-model="vault.description">
+              </div>
+              <button type="submit" class="btn btn-sm btn-light">Submit</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
-
-
-
 
   </div>
 </template>
@@ -42,11 +44,20 @@
     name: 'VaultForm',
     data() {
       return {
-
+        vault: {
+          name: "",
+          description: "",
+          isPrivate: 1
+        }
       }
     },
     computed: {},
-    methods: {}
+    methods: {
+      createVault() {
+        debugger
+        this.$store.dispatch('createVault', this.vault)
+      }
+    }
   }
 
 </script>

@@ -30,7 +30,7 @@ export default new Vuex.Store({
     setAllKeeps(state, keeps) {
       state.Allkeeps = keeps
     },
-    setVaultsByUser(state, vaults) {
+    setUserVaults(state, vaults) {
       state.UserVaults = vaults
     }
 
@@ -42,7 +42,14 @@ export default new Vuex.Store({
       api.get('/vaults')
         .then(res => {
           console.log("Vaults ->", res.data)
-          commit('setVaultsByUser', res.data)
+          commit('setUserVaults', res.data)
+        })
+    },
+    createVault({ commit, dispatch }, vaultData) {
+      api.post('vaults', vaultData)
+        .then(res => {
+          commit('setUserVaults', res.data)
+          dispatch('getAllVaults')
         })
     },
 
