@@ -13,7 +13,7 @@
           <a class="nav-link" href="#">Logout</a>
         </li>
       </ul>
-      <p class="col-6 greeting">Hi, {{user.username}}</p>
+      <a class="col-6 greeting nav-item nav-link">Hi, {{user.username}}</a>
 
     </div>
     <router-view />
@@ -44,7 +44,7 @@
   }
 
   a {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #2c3e50;
   }
 
@@ -55,6 +55,7 @@
   .greeting {
     display: flex;
     align-items: flex-end;
-    margin: 0;
+    /* margin: 0; */
+    justify-content: flex-end;
   }
 </style>

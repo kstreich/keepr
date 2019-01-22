@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="container">
     <VaultForm class="mt-5"></VaultForm>
     <div class="card-columns count mt-5">
       <div v-for="vault in vaults">
