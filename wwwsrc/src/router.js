@@ -7,8 +7,10 @@ import Login from './views/Login.vue'
 // @ts-ignore
 import UserDash from './views/UserDash.vue'
 
+// @ts-ignore
 import Vault from './views/Vault.vue'
 
+// @ts-ignore
 import Keep from './views/Keep.vue'
 
 Vue.use(Router)

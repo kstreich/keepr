@@ -19,14 +19,36 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    Allkeeps: [],
   },
   mutations: {
     setUser(state, user) {
       state.user = user
+    },
+    setAllKeeps(state, keeps) {
+      state.Allkeeps = keeps
     }
+
   },
   actions: {
+
+
+
+
+
+
+    //KEEPS
+    getAllKeeps({ commit, dispatch }) {
+      api.get('/keeps')
+        .then(res => {
+          console.log(res)
+          commit('setAllKeeps', res.data)
+        })
+    },
+
+
+    //AUTH 
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {
