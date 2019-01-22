@@ -12,7 +12,19 @@
 
       }
     },
-    computed: {},
+    beforemount() {
+      this.$store.dispatch("authenticate")
+    },
+    mounted() {
+
+      this.$store.dispatch('getAllVaults', this.user.id)
+    },
+    computed: {
+      user() {
+
+        return this.$store.state.user.id
+      }
+    },
     methods: {
 
     },

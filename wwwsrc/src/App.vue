@@ -7,9 +7,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#/userdash">UserDash</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">Random Link</a>
-      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
     </ul>
     <router-view />
   </div>
