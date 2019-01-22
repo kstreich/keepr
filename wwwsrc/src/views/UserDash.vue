@@ -3,6 +3,16 @@
     <VaultForm></VaultForm>
 
 
+    <div class="card-columns count">
+      <div v-for="vault in vaults">
+        <div class="card">
+          <h5 class="card-title">{{vault.name}}</h5>
+          <p>{{vault.description}}</p>
+        </div>
+      </div>
+    </div>
+
+
 
   </div>
 </template>
@@ -46,5 +56,11 @@
     background-color: rgba(240, 248, 255, 0);
     border: none;
     cursor: pointer;
+  }
+
+  .vaultStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 </style>
