@@ -21,6 +21,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     Allkeeps: [],
+    UserVaults: []
   },
   mutations: {
     setUser(state, user) {
@@ -28,15 +29,22 @@ export default new Vuex.Store({
     },
     setAllKeeps(state, keeps) {
       state.Allkeeps = keeps
+    },
+    setVaultsByUser(state, vaults) {
+      state.UserVaults = vaults
     }
 
   },
   actions: {
 
-
-
-
-
+    //VAULTS
+    getAllVaults({ commit, dispatch }, userId) {
+      api.get('/user/' + userId)
+        .then(res => {
+          console.log(res)
+          commit('setVaultsByUser', res.data)
+        })
+    },
 
     //KEEPS
     getAllKeeps({ commit, dispatch }) {

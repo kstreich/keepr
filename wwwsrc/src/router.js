@@ -31,7 +31,7 @@ export default new Router({
     },
     {
       //This will show all of the users vaults
-      path: '/userDash/:userId',
+      path: '/userDash/',
       name: 'userDash',
       component: UserDash,
       props: true
