@@ -38,13 +38,13 @@ export default new Router({
     },
     {
       //A specific vault which will show all of the keeps
-      path: '/vault',
+      path: '/vault/:vaultId',
       name: "vault",
       component: Vault,
       props: true
     },
     {
-      path: '/keeps',
+      path: '/keep/:keepId',
       name: "keep",
       component: Keep,
       props: true

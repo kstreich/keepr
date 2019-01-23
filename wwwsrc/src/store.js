@@ -21,7 +21,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     Allkeeps: [],
-    UserVaults: []
+    UserVaults: [],
+    CurrentVault: {}
   },
   mutations: {
     setUser(state, user) {
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     setUserVaults(state, vaults) {
       state.UserVaults = vaults
+    },
+    setCurrentVault(state, vault) {
+      state.CurrentVault = vault
     }
 
   },
@@ -50,6 +54,13 @@ export default new Vuex.Store({
         .then(res => {
           commit('setUserVaults', res.data)
           dispatch('getAllVaults')
+        })
+    },
+    getVaultById({ commit, dispatch }, vaultId) {
+      api.get('vaults/' + vaultId)
+        .then(res => {
+          console.log('CurrentVault ->', res.data)
+          commit('setCurrentVault', res.data)
         })
     },
 

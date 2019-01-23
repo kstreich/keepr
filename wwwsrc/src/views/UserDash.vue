@@ -4,11 +4,15 @@
     <div class="card-columns count mt-5">
       <div v-for="vault in vaults">
         <div class="card">
-          <h5 class="card-title">{{vault.name}}</h5>
-          <p>{{vault.description}}</p>
+          <router-link :to="{name: 'vault', params: {vaultId: vault.id}} ">
+            <h5 class="card-title">{{vault.name}}</h5>
+            <p>{{vault.description}}</p>
+          </router-link>
         </div>
       </div>
     </div>
+  </div>
+
 
   </div>
 </template>
