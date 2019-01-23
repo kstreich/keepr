@@ -72,6 +72,13 @@ export default new Vuex.Store({
           commit('setCurrentVault', res.data)
         })
     },
+    deleteVault({ commit, dispatch }, vaultId) {
+      api.delete('vaults/' + vaultId)
+        .then(res => {
+          console.log('Vault deleted!')
+          dispatch('getAllVaults')
+        })
+    },
 
     //KEEPS
     createKeep({ commit, dispatch }, keep) {
@@ -113,11 +120,18 @@ export default new Vuex.Store({
         })
     },
     getVKByVId({ commit, dispatch }, vaultId) {
-
       api.get('vaultkeep/' + vaultId)
         .then(res => {
           console.log('VK ->', res.data)
           commit('setVKs', res.data)
+        })
+    },
+    deleteVK({ commit, dispatch }, vk) {
+      debugger
+      api.delete('vaultkeep/' + vk.id)
+        .then(res => {
+          console.log("VK deleted!")
+          commit('getVKByVId', vk.vaultId)
         })
     },
 

@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <h1>Vault</h1>
     <h4>{{vault.name}}</h4>
     <h6 class="mb-5">{{vault.description}}</h6>
 
@@ -11,9 +12,7 @@
             <h4 class="card-title">{{keep.name}}</h4>
             <p class="card-text">{{keep.description}}</p>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-secondary">Keep</button>
-              <button type="button" class="btn btn-secondary">Share</button>
-              <button type="button" class="btn btn-secondary">View</button>
+
             </div>
           </div>
         </div>
@@ -49,7 +48,11 @@
       }
 
     },
-    methods: {},
+    methods: {
+      removeKfromV(keep) {
+        this.$store.dispatch('deleteVK', keep)
+      }
+    },
     components: {
       KeepForm
     }

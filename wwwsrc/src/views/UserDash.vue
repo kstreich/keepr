@@ -12,6 +12,7 @@
             <h5 class="card-title">{{vault.name}}</h5>
             <p>{{vault.description}}</p>
           </router-link>
+          <button @click="deleteVault(vault.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
         </div>
       </div>
     </div>
@@ -42,10 +43,14 @@
 
     },
     methods: {
-
+      deleteVault(vaultId) {
+        this.$store.dispatch('deleteVault', vaultId)
+      }
     },
     watch: {
-
+      // vaults(val) {
+      //   this.$store.dispatch('getAllVaults')
+      // }
     },
     components: {
       VaultForm,

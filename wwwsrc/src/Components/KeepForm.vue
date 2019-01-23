@@ -18,7 +18,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form @submit.prevent="createKeep()">
+            <form @submit.prevent="createKeep()" id="keepForm">
               <div class="form-group row">
                 <label for="keepName">Name</label>
                 <input type="text" class="form-control" v-model="keep.name">
@@ -73,7 +73,8 @@
           this.keep.isPrivate = 1
         }
         this.$store.dispatch('createKeep', this.keep)
-        //or create a vault keep?? Or both??
+        document.getElementById("keepForm").reset()
+
       }
     }
   }
