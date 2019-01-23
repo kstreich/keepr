@@ -2,7 +2,7 @@
   <div id="app">
 
     <div class="row">
-      <ul class="nav justify-content-center col-6">
+      <ul class="nav justify-content-center col-lg-6 col-md-6 col-sm-12">
         <li class="nav-item">
           <a class="nav-link active" href="#/">Home</a>
         </li>
@@ -13,7 +13,7 @@
           <a class="nav-link" href="#">Logout</a>
         </li>
       </ul>
-      <a class="col-6 greeting nav-item nav-link">Hi, {{user.username}}</a>
+      <a class="col-lg-6 col-md-6 col-sm-12 greeting nav-item nav-link">Hi, {{user.username}}</a>
 
     </div>
     <router-view />

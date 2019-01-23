@@ -82,7 +82,6 @@ export default new Vuex.Store({
         })
     },
     createKeep({ commit, dispatch }, keep) {
-      debugger
       api.post('/keeps', keep)
         .then(res => {
           console.log("Keep Created!")
@@ -105,7 +104,7 @@ export default new Vuex.Store({
         })
     },
     getVKByVId({ commit, dispatch }, vaultId) {
-      debugger
+
       api.get('vaultkeep/' + vaultId)
         .then(res => {
           console.log('VK ->', res.data)

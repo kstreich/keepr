@@ -49,7 +49,6 @@
     methods: {
       //FINISH WITH THIS METHOD to create a vaultkeep, not sure what to do after that...
       createVK(vaultID, keepID) {
-        debugger
         this.$store.dispatch('createVK', { vaultId: vaultID, keepId: keepID })
       }
     }
