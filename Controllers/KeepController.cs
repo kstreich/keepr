@@ -20,12 +20,29 @@ namespace keepr.Controllers
     }
 
 
-    // GET api/values
+    // GET all api/values
     [HttpGet]
     public ActionResult<IEnumerable<Keep>> Get()
     {
       return Ok(_repo.GetAll());
     }
+
+
+    //GET keeps by the userID
+    [HttpGet("user")]
+    public ActionResult<IEnumerable<Keep>> GetAll()
+    {
+
+      string userId = HttpContext.User.Identity.Name;
+      IEnumerable<Keep> result = _repo.GetByUserId(userId);
+      if (result != null)
+      {
+        return Ok(result);
+      }
+      return BadRequest();
+    }
+
+
 
     // GET api/values/5
     [HttpGet("{id}")]

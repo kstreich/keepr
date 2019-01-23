@@ -72,7 +72,20 @@ export default new Vuex.Store({
           commit('setAllKeeps', res.data)
         })
     },
+    createKeep({ commit, dispatch }, keep) {
+      debugger
+      api.post('/keeps', keep)
+        .then(res => {
+          console.log("Keep Created!")
 
+        })
+    },
+    getKeepsByUID({ commit, dispatch }) {
+      api.get('keeps/user')
+        .then(res => {
+          console.log(res.data)
+        })
+    },
 
     //AUTH 
     register({ commit, dispatch }, newUser) {
