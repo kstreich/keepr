@@ -74,13 +74,6 @@ export default new Vuex.Store({
     },
 
     //KEEPS
-    getAllKeeps({ commit, dispatch }) {
-      api.get('/keeps')
-        .then(res => {
-          console.log("Keeps ->", res.data)
-          commit('setAllKeeps', res.data)
-        })
-    },
     createKeep({ commit, dispatch }, keep) {
       api.post('/keeps', keep)
         .then(res => {
@@ -88,6 +81,22 @@ export default new Vuex.Store({
           dispatch('getKeepsByUID')
         })
     },
+    deleteKeep({ commit, dispatch }, keepId) {
+      api.delete('keeps/' + keepId)
+        .then(res => {
+          console.log("Keep Deleted!")
+          dispatch('getKeepsByUID')
+        })
+    },
+
+    getAllKeeps({ commit, dispatch }) {
+      api.get('/keeps')
+        .then(res => {
+          console.log("Keeps ->", res.data)
+          commit('setAllKeeps', res.data)
+        })
+    },
+
     getKeepsByUID({ commit, dispatch }) {
       api.get('keeps/user')
         .then(res => {
