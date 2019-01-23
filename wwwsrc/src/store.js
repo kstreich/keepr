@@ -82,7 +82,7 @@ export default new Vuex.Store({
       api.post('/keeps', keep)
         .then(res => {
           console.log("Keep Created!")
-
+          dispatch('getKeepsByUID')
         })
     },
     getKeepsByUID({ commit, dispatch }) {

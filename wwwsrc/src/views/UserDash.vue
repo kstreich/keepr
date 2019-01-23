@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row compSpacing mt-5">
       <VaultForm></VaultForm>
       <KeepForm></KeepForm>
     </div>
 
-    <div class="card-columns count mt-5">
+    <div class="card-columns count vSpacing">
       <div v-for="vault in vaults">
         <div class="card">
           <router-link :to="{name: 'vault', params: {vaultId: vault.id}} ">
@@ -15,10 +15,11 @@
         </div>
       </div>
     </div>
+    <h4>All of your Keeps</h4>
     <AllUserKeeps></AllUserKeeps>
   </div>
 </template>
-ß
+
 <script>
   import VaultForm from '@/Components/VaultForm.vue'
   import KeepForm from '@/Components/KeepForm.vue'
@@ -74,6 +75,9 @@
   .compSpacing {
     display: flex;
     justify-content: space-evenly;
+  }
 
+  .vSpacing {
+    padding: 4rem;
   }
 </style>
