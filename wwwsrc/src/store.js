@@ -23,7 +23,8 @@ export default new Vuex.Store({
     Allkeeps: [],
     UserVaults: [],
     CurrentVault: {},
-    UserKeeps: []
+    UserKeeps: [],
+    VaultKeeps: []
   },
   mutations: {
     setUser(state, user) {
@@ -40,6 +41,9 @@ export default new Vuex.Store({
     },
     setUserKeeps(state, keeps) {
       state.UserKeeps = keeps
+    },
+    setVKs(state, vks) {
+      state.VaultKeeps = vks
     }
 
 
@@ -98,6 +102,14 @@ export default new Vuex.Store({
       api.post('vaultkeep', vkData)
         .then(res => {
           console.log('VK created!')
+        })
+    },
+    getVKByVId({ commit, dispatch }, vaultId) {
+      debugger
+      api.get('vaultkeep/' + vaultId)
+        .then(res => {
+          console.log('VK ->', res.data)
+          commit('setVKs', res.data)
         })
     },
 
