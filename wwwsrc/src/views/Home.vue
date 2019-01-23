@@ -10,9 +10,19 @@
             <h4 class="card-title">{{keep.name}}</h4>
             <p class="card-text">{{keep.description}}</p>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-secondary">Keep</button>
-              <button type="button" class="btn btn-secondary">Share</button>
-              <button type="button" class="btn btn-secondary">View</button>
+              <div class="dropdown">
+                <button class="btn no-radius btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Keep
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a v-for="vault in userVaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
+                </div>
+              </div>
+              <button type="button" class="no-radius btn btn-secondary">View</button>
+              <button class="btn btn-secondary" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"
+                data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                  class="fb-xfbml-parse-ignore">Share</a></button>
             </div>
           </div>
         </div>
@@ -38,6 +48,9 @@
       keeps() {
         return this.$store.state.Allkeeps
       },
+      userVaults() {
+        return this.$store.state.UserVaults
+      }
     },
     methods: {
 
@@ -52,5 +65,7 @@
 </script>
 
 <style>
-
+  .no-radius {
+    border-radius: 0px;
+  }
 </style>
