@@ -45,11 +45,17 @@
 
   a {
     /* font-weight: bold; */
-    color: #2c3e50;
+    color: #000000;
+
   }
 
   a.router-link-exact-active {
     color: #6fb897;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: black
   }
 
   .greeting {
@@ -57,5 +63,9 @@
     align-items: flex-end;
     /* margin: 0; */
     justify-content: flex-end;
+  }
+
+  .btn {
+    color: black;
   }
 </style>

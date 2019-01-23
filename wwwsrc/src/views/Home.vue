@@ -20,8 +20,8 @@
                 </div>
               </div>
               <button type="button" class="no-radius btn btn-secondary">View</button>
-              <button class="btn btn-secondary" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"
-                data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+              <button class="btn btn-secondary no-radius" data-href="https://developers.facebook.com/docs/plugins/"
+                data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                   class="fb-xfbml-parse-ignore">Share</a></button>
             </div>
           </div>
