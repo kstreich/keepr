@@ -15,15 +15,14 @@
         </div>
       </div>
     </div>
-  </div>
-
-
+    <AllUserKeeps></AllUserKeeps>
   </div>
 </template>
-
+ß
 <script>
   import VaultForm from '@/Components/VaultForm.vue'
   import KeepForm from '@/Components/KeepForm.vue'
+  import AllUserKeeps from '@/Components/AllUserKeeps.vue'
   export default {
     //ask about grabbing the user data and requesting the user id, if that should be done in the back end and how to do that?
     name: '',
@@ -49,7 +48,8 @@
     },
     components: {
       VaultForm,
-      KeepForm
+      KeepForm,
+      AllUserKeeps
     },
     props: [
 

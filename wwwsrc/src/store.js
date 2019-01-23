@@ -22,7 +22,8 @@ export default new Vuex.Store({
     user: {},
     Allkeeps: [],
     UserVaults: [],
-    CurrentVault: {}
+    CurrentVault: {},
+    UserKeeps: []
   },
   mutations: {
     setUser(state, user) {
@@ -36,7 +37,11 @@ export default new Vuex.Store({
     },
     setCurrentVault(state, vault) {
       state.CurrentVault = vault
+    },
+    setUserKeeps(state, keeps) {
+      state.UserKeeps = keeps
     }
+
 
   },
   actions: {
@@ -83,7 +88,8 @@ export default new Vuex.Store({
     getKeepsByUID({ commit, dispatch }) {
       api.get('keeps/user')
         .then(res => {
-          console.log(res.data)
+          console.log("User Keeps ->", res.data)
+          commit('setUserKeeps', res.data)
         })
     },
 
