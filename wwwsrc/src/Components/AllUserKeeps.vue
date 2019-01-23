@@ -12,11 +12,11 @@
                 Add to Vault
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
+                <a v-for="vault in userVaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
               </div>
             </div>
           </div>
-          <router-link :to="{name: 'keep', params: {keepId: keep.id}} ">
+          <router-link :to="{name: 'keep', params: {keepId: keep.id}}">
             <h5 class="card-title">{{keep.name}}</h5>
             <p>{{keep.description}}</p>
           </router-link>
@@ -41,11 +41,20 @@
     computed: {
       userKeeps() {
         return this.$store.state.UserKeeps
+      },
+      userVaults() {
+        return this.$store.state.UserVaults
       }
     },
-    methods: {}
+    methods: {
+      //FINISH WITH THIS METHOD to create a vaultkeep, not sure what to do after that...
+      createVK(vaultID, keepID) {
+        debugger
+        this.$store.dispatch('createVK', { vaultId: vaultID, keepId: keepID })
+      }
+    }
   }
-
+  ß
 </script>
 
 <style>

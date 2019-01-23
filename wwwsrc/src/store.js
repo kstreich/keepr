@@ -93,6 +93,14 @@ export default new Vuex.Store({
         })
     },
 
+    //VAULTKEEPS
+    createVK({ commit, dispatch }, vkData) {
+      api.post('vaultkeep', vkData)
+        .then(res => {
+          console.log('VK created!')
+        })
+    },
+
     //AUTH 
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)

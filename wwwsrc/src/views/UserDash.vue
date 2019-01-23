@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
     <div class="row compSpacing mt-5">
       <VaultForm></VaultForm>
       <KeepForm></KeepForm>
