@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <VaultForm class="mt-5"></VaultForm>
+    <div class="row compSpacing mt-5">
+      <VaultForm></VaultForm>
+      <KeepForm></KeepForm>
+    </div>
+
     <div class="card-columns count mt-5">
       <div v-for="vault in vaults">
         <div class="card">
@@ -19,6 +23,7 @@
 
 <script>
   import VaultForm from '@/Components/VaultForm.vue'
+  import KeepForm from '@/Components/KeepForm.vue'
   export default {
     //ask about grabbing the user data and requesting the user id, if that should be done in the back end and how to do that?
     name: '',
@@ -43,7 +48,8 @@
 
     },
     components: {
-      VaultForm
+      VaultForm,
+      KeepForm
     },
     props: [
 
@@ -63,5 +69,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .compSpacing {
+    display: flex;
+    justify-content: space-evenly;
+
   }
 </style>

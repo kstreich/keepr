@@ -1,12 +1,15 @@
 <template>
   <div class="">
     <h4>{{vault.name}}</h4>
-    <h6>{{vault.description}}</h6>
+    <h6 class="mb-5">{{vault.description}}</h6>
+
+
 
   </div>
 </template>
 
 <script>
+  import KeepForm from '@/Components/KeepForm.vue'
   export default {
     name: 'Vault',
     props: ['vaultId'],
@@ -23,7 +26,10 @@
         return this.$store.state.CurrentVault
       }
     },
-    methods: {}
+    methods: {},
+    components: {
+      KeepForm
+    }
   }
 
 </script>
