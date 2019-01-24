@@ -2,7 +2,7 @@
   <div id="app">
 
     <div class="row">
-      <ul class="nav justify-content-center col-lg-6 col-md-6 col-sm-12">
+      <ul class="nav col-lg-6 col-md-6 col-sm-12">
         <li class="nav-item">
           <a class="nav-link active" href="#/">Home</a>
         </li>

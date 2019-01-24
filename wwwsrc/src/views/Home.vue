@@ -3,7 +3,7 @@
 
     <div class="jumbotron">
       <h1>Welcome To Keepr.</h1>
-      <p v-if="!userVaults">Keepr is a social network that allows users to visually share, and discover new interests
+      <p v-if="!user.id">Keepr is a social network that allows users to visually share, and discover new interests
         by
         posting (known as
         'keeping' on Keepr) images or videos to their own or others' collections (i.e. a collection of 'vaults,'
@@ -72,6 +72,9 @@
       },
       vaults() {
         return this.$store.state.UserVaults
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {
@@ -96,6 +99,6 @@
 
 <style>
   .no-radius {
-    border-radius: 0px;
+    border-radius: 2.5px;
   }
 </style>

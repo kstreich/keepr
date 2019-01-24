@@ -1,22 +1,27 @@
 <template>
-    <div class="login">
-        <form v-if="loginForm" @submit.prevent="loginUser">
-            <input type="email" v-model="creds.email" placeholder="email">
-            <input type="password" v-model="creds.password" placeholder="password">
-            <button type="submit">Login</button>
-        </form>
-        <form v-else @submit.prevent="register">
-            <input type="text" v-model="newUser.username" placeholder="name">
-            <input type="email" v-model="newUser.email" placeholder="email">
-            <input type="password" v-model="newUser.password" placeholder="password">
-            <button type="submit">Create Account</button>
-        </form>
-        <div @click="loginForm = !loginForm">
-            <p v-if="loginForm">No account Click to Register</p>
-            <p v-else>Already have an account click to Login</p>
+    <div class="container login">
+        <div class="jumbotron mt-5">
+            <h4 class="JTmargTop">Please login or register to start keeping new things.</h4>
+            <form v-if="loginForm" @submit.prevent="loginUser">
+                <input class="form-control" type="email" v-model="creds.email" placeholder="email">
+                <input class="form-control" type="password" v-model="creds.password" placeholder="password">
+                <button class="btn btn-sm btn-info mt-3" type="submit">Login</button>
+            </form>
+            <form v-else @submit.prevent="register">
+                <input class="form-control" type="text" v-model="newUser.username" placeholder="name">
+                <input class="form-control" type="email" v-model="newUser.email" placeholder="email">
+                <input class="form-control" type="password" v-model="newUser.password" placeholder="password">
+                <button class="btn btn-sm btn-info mt-3" type="submit">Create Account</button>
+            </form>
+            <div @click="loginForm = !loginForm">
+                <p class="JTmargBottom" v-if="loginForm">Don't have an account? Click here to Register.</p>
+                <p class="JTmargBottom" v-else>Already have an account? Click here to Login.</p>
+            </div>
         </div>
     </div>
 </template>
+
+
 
 <script>
     export default {
@@ -45,3 +50,13 @@
         }
     };
 </script>
+
+<style>
+    .JTmargTop {
+        margin-bottom: 4vh
+    }
+
+    .JTmargBottom {
+        margin-top: 8vh
+    }
+</style>
