@@ -45,7 +45,7 @@ namespace keepr.Repositories
       return newKeep;
     }
 
-    //DeleteVault
+    //DeleteKeeps
     public bool DeleteKeep(int id)
     {
       int success = _db.Execute(@"DELETE FROM Keeps WHERE id = @id", new { id });
@@ -65,6 +65,13 @@ namespace keepr.Repositories
           SELECT * FROM keeps WHERE id= {id};", newKeep);
 
       }
+    }
+
+    public int addView(int id)
+    {
+
+      return _db.Execute($@"
+      UPDATE keeps SET views = views + 1  WHERE id = @id", new { id });
     }
   }
 }

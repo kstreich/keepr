@@ -19,7 +19,7 @@
                   <a v-for="vault in vaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
                 </div>
               </div>
-              <button type="button" @click="addViewCount(keep.id)" class="no-radius btn btn-secondary">
+              <button type="button" @click="addViewCount(keep)" class="no-radius btn btn-secondary">
                 <router-link :to="{name: 'keep', params: {keepId: keep.id}}">View</router-link>
               </button>
               <button class="btn btn-secondary no-radius" data-href="https://developers.facebook.com/docs/plugins/"
@@ -50,11 +50,6 @@
     },
     data() {
       return {
-        data: {
-          keeps: 1,
-          views: 1,
-          shares: 1
-        }
       }
     },
     mounted() {
@@ -70,10 +65,7 @@
     },
     methods: {
       addViewCount(keepId) {
-        let payload = {
-
-        }
-        this.$store.dispatch('addViewCount', keepId)
+        this.$store.dispatch('addViewCount', keepid)
 
       },
       createVK(vaultID, keepID) {
