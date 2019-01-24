@@ -83,7 +83,12 @@ namespace keepr.Controllers
     public ActionResult<int> UpdateViews(int id)
     {
       return _repo.addView(id);
-      //TEST THIS!!!
+    }
+
+    [HttpPut("{id}/keeps")]
+    public ActionResult<int> UpdateKeeps(int id)
+    {
+      return _repo.addKeep(id);
     }
 
     // DELETE api/values/5

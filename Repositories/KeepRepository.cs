@@ -73,5 +73,13 @@ namespace keepr.Repositories
       return _db.Execute($@"
       UPDATE keeps SET views = views + 1  WHERE id = @id", new { id });
     }
+
+    public int addKeep(int id)
+    {
+      return _db.Execute(@"
+      UPDATE keeps SET keeps = keeps + 1  WHERE id = @id", new { id });
+    }
+
+
   }
 }

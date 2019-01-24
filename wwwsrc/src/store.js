@@ -134,12 +134,20 @@ export default new Vuex.Store({
           dispatch('getAllKeeps')
         })
     },
+    addKeepCount({ commit, dispatch }, keepId) {
+      api.put('keeps/' + keepId + "/keeps")
+        .then(res => {
+          console.log("Keep updated")
+          dispatch('getAllKeeps')
+        })
+    },
 
     //VAULTKEEPS
     createVK({ commit, dispatch }, vkData) {
       api.post('vaultkeep', vkData)
         .then(res => {
           console.log('VK created!')
+          dispatch('addKeepCount', vkData.keepId)
         })
     },
     getVKByVId({ commit, dispatch }, vaultId) {
