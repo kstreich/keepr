@@ -4,6 +4,7 @@
       <h4 class="mb-3">{{keep.name}}</h4>
       <img class="max-width keepImg" :src="keep.img">
       <p class="mt-3">{{keep.description}}</p>
+
     </div>
 
   </div>

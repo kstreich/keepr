@@ -16,9 +16,11 @@
             </div>
           </div>
           <router-link :to="{name: 'keep', params: {keepId: keep.id}}">
-            <h5 class="card-title">{{keep.name}}</h5>
+            <h5 class="card-title mt-3">{{keep.name}}</h5>
             <p>{{keep.description}}</p>
           </router-link>
+          <i class="fab fa-korvue"></i> {{keep.keeps}} <i class="far fa-eye"></i> {{keep.views}}
+
           <button @click="deleteKeep(keep.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
         </div>
       </div>

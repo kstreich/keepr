@@ -61,9 +61,9 @@
 <style>
   @media (max-width: 34em) {
     .card-columns {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
     }
   }
 

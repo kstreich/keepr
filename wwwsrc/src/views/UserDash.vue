@@ -1,18 +1,21 @@
 <template>
   <div class="">
-    <div class="row compSpacing mt-5">
-      <VaultForm></VaultForm>
-      <KeepForm></KeepForm>
-    </div>
+    <div class="jumbotron jtStyle">
+      <h5>UserDash</h5>
+      <div class="row compSpacing mt-3">
+        <VaultForm></VaultForm>
+        <KeepForm></KeepForm>
+      </div>
 
-    <div class="card-columns count vSpacing">
-      <div v-for="vault in vaults">
-        <div class="card">
-          <router-link :to="{name: 'vault', params: {vaultId: vault.id}} ">
-            <h5 class="card-title">{{vault.name}}</h5>
-            <p>{{vault.description}}</p>
-          </router-link>
-          <button @click="deleteVault(vault.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
+      <div class="card-columns count vSpacing">
+        <div v-for="vault in vaults">
+          <div class="card">
+            <router-link :to="{name: 'vault', params: {vaultId: vault.id}} ">
+              <h5 class="card-title">{{vault.name}}</h5>
+              <p>{{vault.description}}</p>
+            </router-link>
+            <button @click="deleteVault(vault.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
+          </div>
         </div>
       </div>
     </div>
@@ -81,5 +84,9 @@
 
   .vSpacing {
     padding: 4rem;
+  }
+
+  .jtStyle {
+    padding: 1rem;
   }
 </style>
