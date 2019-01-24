@@ -33,9 +33,6 @@
 
       }
     },
-    mounted() {
-      this.$store.dispatch('getAllVaults')
-    },
     computed: {
       vaults() {
         return this.$store.state.UserVaults

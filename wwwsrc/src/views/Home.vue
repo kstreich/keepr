@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome Home, this is where all of the keeps are going to be</h1>
+    <h1>Welcome Home</h1>
 
     <div class="card-columns count">
       <div v-for="keep in keeps">
@@ -19,10 +19,17 @@
                   <a v-for="vault in userVaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
                 </div>
               </div>
-              <button type="button" class="no-radius btn btn-secondary">View</button>
+              <button type="button" @click="addViewCount(keep.id)" class="no-radius btn btn-secondary">
+                <router-link :to="{name: 'keep', params: {keepId: keep.id}}">View</router-link>
+              </button>
               <button class="btn btn-secondary no-radius" data-href="https://developers.facebook.com/docs/plugins/"
                 data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
                   class="fb-xfbml-parse-ignore">Share</a></button>
+            </div>
+            <div class="row mt-2">
+              <div v-model="data.keeps" class="col-4">Keeps: {{keep.keeps}} </div>
+              <div v-model="data.views" class="col-4">Views: {{keep.views}} </div>
+              <div v-model="data.shares" class="col-4">Shares: {{keep.shares}} </div>
             </div>
           </div>
         </div>
@@ -41,19 +48,31 @@
         this.$router.push({ name: "login" });
       }
     },
+    data() {
+      return {
+        data: {
+          keeps: this.keeps.keeps + 1,
+          views: this.keeps.views + 1,
+          shares: this.keeps.shares + 1
+        }
+      }
+    },
     mounted() {
       this.$store.dispatch("getAllKeeps")
     },
     computed: {
       keeps() {
         return this.$store.state.Allkeeps
-      },
-      userVaults() {
-        return this.$store.state.UserVaults
       }
     },
     methods: {
+      addViewCount(keepId) {
+        let payload = {
 
+        }
+        this.$store.dispatch('addViewCount', keepId)
+
+      }
     },
     watch: {
 

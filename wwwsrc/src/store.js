@@ -111,6 +111,9 @@ export default new Vuex.Store({
           commit('setUserKeeps', res.data)
         })
     },
+    addViewCount({ commit, dispatch }, keepId) {
+
+    },
 
     //VAULTKEEPS
     createVK({ commit, dispatch }, vkData) {
@@ -151,6 +154,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log("User ->", res.data)
           commit('setUser', res.data)
+          dispatch('getAllVaults')
           // router.push({ name: 'home' })
         })
         .catch(e => {
@@ -162,6 +166,7 @@ export default new Vuex.Store({
         .then(res => {
           commit('setUser', res.data)
           router.push({ name: 'home' })
+          dispatch('getAllVaults')
         })
         .catch(e => {
           console.log('Login Failed')

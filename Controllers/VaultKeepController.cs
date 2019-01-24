@@ -28,6 +28,7 @@ namespace keepr.Controllers
     // }
 
     //GET api/values/5
+
     //Get VaultKeeps by the vault id
     [HttpGet("{id}")]
     public ActionResult<IEnumerable<Keep>> GetKeepByVaultId(int id)
@@ -40,6 +41,8 @@ namespace keepr.Controllers
       }
       return BadRequest();
     }
+
+    [HttpGet("vk")]
 
     // POST api/values
     [HttpPost]
