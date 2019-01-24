@@ -44,8 +44,10 @@ export default new Vuex.Store({
     },
     setVKs(state, vks) {
       state.VaultKeeps = vks
+    },
+    logout(state) {
+      state.user = {}
     }
-
 
   },
   actions: {
@@ -170,6 +172,13 @@ export default new Vuex.Store({
         })
         .catch(e => {
           console.log('Login Failed')
+        })
+    },
+    logout({ commit, dispatch }) {
+      auth.delete('logout')
+        .then(res => {
+          commit('logout')
+          router.push({ name: 'home' })
         })
     }
   }

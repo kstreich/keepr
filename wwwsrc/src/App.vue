@@ -10,7 +10,7 @@
           <a class="nav-link" href="#/userdash">UserDash</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a @click="logout" class="nav-link" href="#">Logout</a>
         </li>
       </ul>
       <a class="col-lg-6 col-md-6 col-sm-12 greeting nav-item nav-link">Hi, {{user.username}}</a>
@@ -29,6 +29,11 @@
       user() {
         return this.$store.state.user
       },
+    },
+    methods: {
+      logout() {
+        this.$store.dispatch('logout')
+      }
     }
   };
 

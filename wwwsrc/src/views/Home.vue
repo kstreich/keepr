@@ -16,7 +16,7 @@
                   Keep
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a v-for="vault in userVaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
+                  <a v-for="vault in vaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
                 </div>
               </div>
               <button type="button" @click="addViewCount(keep.id)" class="no-radius btn btn-secondary">
@@ -51,9 +51,9 @@
     data() {
       return {
         data: {
-          keeps: this.keeps.keeps + 1,
-          views: this.keeps.views + 1,
-          shares: this.keeps.shares + 1
+          keeps: 1,
+          views: 1,
+          shares: 1
         }
       }
     },
@@ -63,6 +63,9 @@
     computed: {
       keeps() {
         return this.$store.state.Allkeeps
+      },
+      vaults() {
+        return this.$store.state.UserVaults
       }
     },
     methods: {
@@ -72,6 +75,9 @@
         }
         this.$store.dispatch('addViewCount', keepId)
 
+      },
+      createVK(vaultID, keepID) {
+        this.$store.dispatch('createVK', { vaultId: vaultID, keepId: keepID })
       }
     },
     watch: {

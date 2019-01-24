@@ -11,9 +11,7 @@
           <div class="card-body">
             <h4 class="card-title">{{keep.name}}</h4>
             <p class="card-text">{{keep.description}}</p>
-            <div class="btn-group" role="group" aria-label="Basic example">
-
-            </div>
+            <button class="btn-icon"><i class="fas fa-minus"></i> Remove</button>
           </div>
         </div>
       </div>
