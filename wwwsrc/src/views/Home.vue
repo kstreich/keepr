@@ -1,6 +1,17 @@
 <template>
   <div class="home">
-    <h1>Welcome Home</h1>
+
+    <div class="jumbotron">
+      <h1>Welcome To Keepr.</h1>
+      <p v-if="!userVaults">Keepr is a social network that allows users to visually share, and discover new interests
+        by
+        posting (known as
+        'keeping' on Keepr) images or videos to their own or others' collections (i.e. a collection of 'vaults,'
+        usually
+        with a
+        common theme) and browsing what other users have kept.</p>
+    </div>
+
 
     <div class="card-columns count">
       <div v-for="keep in keeps">

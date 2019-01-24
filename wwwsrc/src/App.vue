@@ -6,14 +6,19 @@
         <li class="nav-item">
           <a class="nav-link active" href="#/">Home</a>
         </li>
-        <li class="nav-item">
+        <li v-if="user.id" class="nav-item">
           <a class="nav-link" href="#/userdash">UserDash</a>
         </li>
-        <li class="nav-item">
+        <li v-if="user.id" class="nav-item">
           <a @click="logout" class="nav-link" href="#">Logout</a>
         </li>
+        <li v-else class="nav-item">
+          <a class="nav-link" href="#/login">Log In</a>
+        </li>
+
       </ul>
-      <a class="col-lg-6 col-md-6 col-sm-12 greeting nav-item nav-link">Hi, {{user.username}}</a>
+
+      <a v-if="user.id" class="col-lg-6 col-md-6 col-sm-12 greeting nav-item nav-link">Hi, {{user.username}}</a>
 
     </div>
     <router-view />

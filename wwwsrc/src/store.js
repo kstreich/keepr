@@ -68,7 +68,7 @@ export default new Vuex.Store({
     createVault({ commit, dispatch }, vaultData) {
       api.post('vaults', vaultData)
         .then(res => {
-          Swal.fire('Successfully created!')
+          // Swal.fire('Successfully created!')
           commit('setUserVaults', res.data)
           dispatch('getAllVaults')
         })
@@ -203,7 +203,7 @@ export default new Vuex.Store({
       auth.delete('logout')
         .then(res => {
           commit('logout')
-          router.push({ name: 'home' })
+          router.push({ name: 'login' })
         })
     }
   }
