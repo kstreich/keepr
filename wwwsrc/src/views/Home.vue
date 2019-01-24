@@ -19,7 +19,7 @@
                   <a v-for="vault in vaults" class="dropdown-item" href="#" @click="createVK(vault.id, keep.id)">{{vault.name}}</a>
                 </div>
               </div>
-              <button type="button" @click="addViewCount(keep)" class="no-radius btn btn-secondary">
+              <button type="button" @click="addViewCount(keep.id)" class="no-radius btn btn-secondary">
                 <router-link :to="{name: 'keep', params: {keepId: keep.id}}">View</router-link>
               </button>
               <button class="btn btn-secondary no-radius" data-href="https://developers.facebook.com/docs/plugins/"
@@ -27,9 +27,9 @@
                   class="fb-xfbml-parse-ignore">Share</a></button>
             </div>
             <div class="row mt-2">
-              <div v-model="data.keeps" class="col-4">Keeps: {{keep.keeps}} </div>
-              <div v-model="data.views" class="col-4">Views: {{keep.views}} </div>
-              <div v-model="data.shares" class="col-4">Shares: {{keep.shares}} </div>
+              <div class="col-4">Keeps: {{keep.keeps}} </div>
+              <div class="col-4">Views: {{keep.views}} </div>
+              <div class="col-4">Shares: {{keep.shares}} </div>
             </div>
           </div>
         </div>

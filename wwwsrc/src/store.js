@@ -25,6 +25,7 @@ export default new Vuex.Store({
     UserVaults: [],
     CurrentVault: {},
     UserKeeps: [],
+    CurrentKeep: {},
     VaultKeeps: []
   },
   mutations: {
@@ -42,6 +43,9 @@ export default new Vuex.Store({
     },
     setUserKeeps(state, keeps) {
       state.UserKeeps = keeps
+    },
+    setCurrentKeep(state, keep) {
+      state.CurrentKeep = keep
     },
     setVKs(state, vks) {
       state.VaultKeeps = vks
@@ -115,8 +119,20 @@ export default new Vuex.Store({
           commit('setUserKeeps', res.data)
         })
     },
-    addViewCount({ commit, dispatch }, keepId) {
+    getKeepById({ commit, dispatch }, keepId) {
+      api.get("keeps/" + keepId)
+        .then(res => {
+          console.log("Keep ->", res.data)
+          commit('setCurrentKeep', res.data)
+        })
+    },
 
+    addViewCount({ commit, dispatch }, keepId) {
+      api.put('keeps/' + keepId + "/views")
+        .then(res => {
+          console.log("View updated")
+          dispatch('getAllKeeps')
+        })
     },
 
     //VAULTKEEPS
