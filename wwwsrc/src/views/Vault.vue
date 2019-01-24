@@ -11,7 +11,7 @@
           <div class="card-body">
             <h4 class="card-title">{{keep.name}}</h4>
             <p class="card-text">{{keep.description}}</p>
-            <button class="btn-icon"><i class="fas fa-minus"></i> Remove</button>
+            <button @click="removeKfromV(keep.id)" class="btn-clear"><i class="fas fa-minus"></i> </button>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
 
       }
     },
-    beforemount() {
+    beforeMount() {
       this.$store.dispatch('getVaultById', this.vaultId)
     },
     mounted() {
@@ -47,8 +47,8 @@
 
     },
     methods: {
-      removeKfromV(keep) {
-        this.$store.dispatch('deleteVK', keep)
+      removeKfromV(keepID) {
+        this.$store.dispatch('deleteVK', { keepId: keepID, vaultId: this.vault.id })
       }
     },
     components: {

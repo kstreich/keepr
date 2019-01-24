@@ -62,10 +62,10 @@ namespace keepr.Controllers
     // }
 
     // DELETE api/values/5
-    [HttpDelete("{id}")]
-    public ActionResult<string> Delete(int id)
+    [HttpPut]
+    public ActionResult<string> Delete([FromBody]VaultKeep vk)
     {
-      if (_repo.DeleteVaultKeep(id))
+      if (_repo.DeleteVaultKeep(vk))
       {
         return Ok("Successfully deleted!");
       }

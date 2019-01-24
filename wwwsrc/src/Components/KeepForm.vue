@@ -36,7 +36,6 @@
                 <input name="public" type="checkbox" v-model="keep.isPrivate" value="1">
                 <span class="checkmark"></span>
               </label>
-              {{keep.isPrivate}}
 
               <button type="submit" class="btn btn-sm btn-light">Submit</button>
             </form>

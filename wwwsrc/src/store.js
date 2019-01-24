@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
+import Swal from 'sweetalert2'
 
 Vue.use(Vuex)
 
@@ -63,6 +64,7 @@ export default new Vuex.Store({
     createVault({ commit, dispatch }, vaultData) {
       api.post('vaults', vaultData)
         .then(res => {
+          Swal.fire('Successfully created!')
           commit('setUserVaults', res.data)
           dispatch('getAllVaults')
         })
@@ -132,11 +134,10 @@ export default new Vuex.Store({
         })
     },
     deleteVK({ commit, dispatch }, vk) {
-      debugger
-      api.delete('vaultkeep/' + vk.id)
+      api.put('vaultkeep/', vk)
         .then(res => {
           console.log("VK deleted!")
-          commit('getVKByVId', vk.vaultId)
+          dispatch('getVKByVId', vk.vaultId)
         })
     },
 
