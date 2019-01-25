@@ -55,6 +55,7 @@
     methods: {
       createVault() {
         this.$store.dispatch('createVault', this.vault)
+        document.getElementById('exampleModal').modal('toggle')
       }
     }
   }

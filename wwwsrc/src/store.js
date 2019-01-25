@@ -68,7 +68,6 @@ export default new Vuex.Store({
     createVault({ commit, dispatch }, vaultData) {
       api.post('vaults', vaultData)
         .then(res => {
-          // Swal.fire('Successfully created!')
           commit('setUserVaults', res.data)
           dispatch('getAllVaults')
         })

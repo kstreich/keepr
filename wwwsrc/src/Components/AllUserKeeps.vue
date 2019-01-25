@@ -6,9 +6,9 @@
 
         <div class="card">
           <img class="card-img-top" :src='keep.img'>
-          <div class="dropdown">
-            <button class="btn btn-sm btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+          <div class="dropdown cardSectionTp">
+            <button class="btn btn-sm btn-info btn-clear dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Add to Vault
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -19,9 +19,10 @@
             <h5 class="card-title mt-3">{{keep.name}}</h5>
             <p>{{keep.description}}</p>
           </router-link>
-          <i class="fab fa-korvue"></i> {{keep.keeps}} <i class="far fa-eye"></i> {{keep.views}}
-
-          <button @click="deleteKeep(keep.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
+          <div class="cardSectionBt">
+            <i class="fab fa-korvue"></i> {{keep.keeps}} <i class="far fa-eye"></i> {{keep.views}}
+            <button @click="deleteKeep(keep.id)" class="btn-clear"><i class="fas fa-trash"></i></button>
+          </div>
         </div>
       </div>
     </div>
@@ -68,5 +69,13 @@
     display: flex;
     justify-content: flex-end;
     color: rgb(18, 232, 200);
+  }
+
+  .cardSectionBt {
+    border-top: 1px solid rgba(0, 0, 0, .125)
+  }
+
+  .cardSectionTp {
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
   }
 </style>
