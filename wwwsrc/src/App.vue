@@ -2,7 +2,8 @@
   <div id="app">
 
     <div class="row">
-      <ul class="nav col-lg-6 col-md-6 col-sm-12">
+      <img class="col-1 navIcon" src="../public/keyboard-key-k (1).png">
+      <ul class="nav col-lg-5 col-md-6 col-sm-12">
         <li class="nav-item">
           <a class="nav-link active" href="#/">Home</a>
         </li>
@@ -77,5 +78,10 @@
 
   .btn {
     color: black;
+  }
+
+  .navIcon {
+    max-height: 2rem;
+    max-width: 4.1rem;
   }
 </style>
