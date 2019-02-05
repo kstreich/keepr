@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 Vue.use(Vuex)
 
 let production = !window.location.host.includes('localhost')
-let baseURL = production ? "" : "//localhost:5000"
+let baseURL = production ? "https://keepr-site.herokuapp.com" : "//localhost:5000"
 
 let auth = Axios.create({
   baseURL: baseURL + "/auth/",
